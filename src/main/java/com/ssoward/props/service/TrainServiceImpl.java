@@ -16,23 +16,19 @@ public class TrainServiceImpl implements TrainService {
     private static List<Train> trainList = new ArrayList<Train>();
     private static Long id = 0L;
 
-    @Override
     public List<Train> getAllTrains() {
         return trainList;
     }
 
-    @Override
     public Train getTrainById(Long id) {
         return findTrainById(id);
     }
 
-    @Override
     public void addTrain(Train train) {
         train.setId(++id);
         trainList.add(train);
     }
 
-    @Override
     public void deleteTrainById(Long id) {
         Train foundTrain = findTrainById(id);
         if (foundTrain != null) {
@@ -41,13 +37,11 @@ public class TrainServiceImpl implements TrainService {
         }
     }
 
-    @Override
     public void deleteAll() {
         trainList.clear();
         id = 0L;
     }
 
-    @Override
     public void updateTrain(Train train) {
         Train foundTrain = findTrainById(train.getId());
         if (foundTrain != null) {
